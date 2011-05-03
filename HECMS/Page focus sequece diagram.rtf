@@ -1,0 +1,76 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww17460\viewh14020\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 # -----\
+# Page focused sequence diagram\
+#\
+#\
+\
+participant User\
+participant "CodeIgniter" as CI\
+participant "Frontend Controller" as Front\
+participant "Page Controller" as Page\
+participant "URL Controller" as Url\
+participant "Layout Controller" as Layout\
+\
+note left of User\
+  Users request is that of \
+end note\
+\
+User->CI: requestPage\
+activate User\
+activate CI\
+\
+CI->Front: <<Instantiate Frontend Controller>>\
+note over Front: Using the CI Router object\
+Front->Front: Parse URL\
+activate Front\
+Front ->Page: <<Instantiate Page Controller>>\
+\
+activate Page\
+alt Site in normal operation\
+  Front->Page: loadPage($page, $flags)\
+else Site in maintenance mode\
+  Front->Page: loadPage(FALSE, array('Maintenance' => TRUE));\
+else Site in AB testing mode\
+  Front->Page: loadPage($page, array('ABTesting' => TRUE))\
+  note over Page: Leave room for other modes\
+end\
+\
+alt Maintenance flag set\
+    Page->Page: getMaintenancePage()\
+else Normal operation\
+alt Page request by string\
+    Page->Page: Retrieve Page based on Permalink\
+else Page request is int\
+    Page->Page: Retrieve Page based on ID\
+end\
+alt Page NOT found\
+    Page->Page: Retrieve 404 page\
+end\
+alt ABTesting flag set\
+    Page->Page: Retrieve AB Testing version\
+end\
+Page->Front: $page_content\
+deactivate Page\
+\
+Front->Layout: Layout::Build($layout_name, $content, $javascript, $css)\
+alt HTML/xHTML request\
+    Layout->Layout: Build Javascript requests\
+    Layout->Layout: Build CSS requests\
+    Layout->Layout: Retrieve Header View\
+    Layout->Layout: Retrieve Footer View\
+    Layout->Layout: Format HTML\
+else JSON request\
+    Layout->Layout: Format JSON\
+end\
+Layout-->Front: Return Output\
+Front->Layout: $output = getOutput()\
+Front->CI: $output\
+CI-->User: \
+deactivate CI\
+deactivate User\
+}

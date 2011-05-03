@@ -1,0 +1,76 @@
+<div >
+  <ul id="nav" class="clearfix">
+    <li class="nvsq clearfix"><a href="#dashboard">Dashboard</a></li>
+    <li class="nvsq current clearfix"><a href="#email">Email</a></li>
+    <li class="clearfix">
+      <ul class="nvsq clearfix">
+        <li class="top"><a href="">one</a></li>
+        <li class="top"><a href="">two</a></li>
+        <li class=""><a href="">threethreeth</a></li>
+      </ul>
+    </li>
+    <li class="nvsq clearfix"><a href="">Blackboard</a></li>
+    <li class="nvsq nvsq-custom clearfix">
+      <a id="nav-calendar" href="">
+        <span>Calendar</span>
+        <span class="wrapper">
+          <span class="month"><?php print date('M', time()); ?></span>
+          <span class="day"><?php print date('d', time()); ?></span>
+        </span>
+      </a>
+    </li>
+    <li class="nvsq-x clearfix">
+      <ul class="clearfix nvsq nvsq-x nvsq-2">
+        <li class=""><a href="">Logout</a></li>
+        <li class=""><a href="">Settings</a></li>
+      </ul>
+    </li>
+    <li class="clearfix">
+      <ul class="clearfix">
+        <li class="top"><a href="">one</a></li>
+        <li class="top last-child"><a href="">two</a></li>
+        <li class="bottom"><a href="">tre</a></li>
+        <li class="bottom last-child"><a href="">for</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<style>
+  #nav-calendar .month, #nav-calendar .day {
+    -webkit-transition-property: background, color, border;
+    -webkit-transition-duration: .5s, .5s, 5s;
+  }
+  #nav #nav-calendar > span {
+    display: block;
+  }
+  #nav #nav-calendar span {
+    display: block;
+  }
+  #nav-calendar .wrapper {
+  }
+  #nav-calendar .wrapper .month {
+    padding: 0 2px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background: #ededed;
+    font-size: 14px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  #nav-calendar .wrapper .day {
+    background: #fff;
+    border: 1px solid #ededed;
+    border-top: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-size: 20px;
+  }
+  li:hover #nav-calendar .month {
+    background: #616161;
+    color: #fff;
+  }
+  li:hover #nav-calendar .day {
+    border-color: #616161;
+  }
+</style>

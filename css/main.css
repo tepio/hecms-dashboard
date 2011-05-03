@@ -1,0 +1,11 @@
+body {
+  font: 12px YanoneKaffeesatzLight,sans-serif;
+}
+
+a {}
+
+/* Main wrapper */
+#main {
+  padding: 10px;
+  background: #ededed;
+}

@@ -1,0 +1,112 @@
+ul#nav {
+  color: #7f7f7f;
+  text-align: center;
+  height: 75px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul#nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul#nav a, ul#nav a:hover, #nav a:visited {
+  color: #7f7f7f;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/** NavSquares **/
+ul#nav li {
+  position: relative;
+  float: left;
+  height: 76px;
+  border-bottom: 1px solid transparent;
+}
+ul#nav li a {
+  display: block;
+  height: 71px;
+  border-top: 4px solid #fff;
+  border-left: 1px solid #ededed;
+  padding: 0 20px;
+  background: #ffffff;
+}
+
+/* Multi Nav Squares */
+ul#nav ul {
+  width: 92px;
+  overflow: hidden;
+}
+ul#nav ul li {
+  height: auto;
+  padding: 0;
+  border: 0;
+  z-index: 100;
+}
+ul#nav ul li a {
+  width: 91px;
+  height: 21px;
+  padding: 6px 0;
+  border-top: 4px solid #fff;
+  border-left: 1px solid #ededed;
+  font-size: 16px;
+}
+ul#nav ul li:first-child a {
+  border-bottom: 1px solid #ededed;
+}
+ul#nav ul li.last-child a {
+  width: 90px;
+}
+
+/* Three / Four Nav Squares */
+ul#nav ul li.top a {
+  border-bottom: 1px solid #ededed;
+}
+ul#nav ul li.top, ul#nav ul li.bottom {
+  float: left;
+}
+ul#nav ul li.top a, ul#nav ul li.bottom a {
+  width: 45px;
+}
+ul#nav ul li.top.last-child a, ul#nav ul li.bottom.last-child a {
+  width: 44px;
+}
+/* Psudo classes */
+ul#nav li.last-child a {
+  border-right: 1px solid #ededed;
+}
+
+/**
+ * CSS Transitions
+ */
+ul#nav li, ul#nav a {
+  -webkit-transition-property: padding, background, border;
+  -webkit-transition-duration: .2s, .5s, .5s;
+}
+
+/**
+ * Nav Square Current / Hover States
+ */
+ul#nav li.current a, ul#nav a:hover {
+  background: #ededed;
+  border-top-color: #616161;
+  border-left-color: #fff;
+}
+
+/* Change border if nav is next to current nav or hover */
+ul#nav li.current + li a, ul#nav li:hover + li a {
+  border-left-color: #fff;
+}
+
+/**
+ * Multi Nav Square Current / Hover States
+ */
+ul#nav ul:hover li a {
+  border-left-color: #ededed;
+}
+ul#nav ul li a:hover {
+  border-left-color: #fff;
+  border-right-color: #fff;
+}
+ul#nav li.current + li.top.last-child a {} 

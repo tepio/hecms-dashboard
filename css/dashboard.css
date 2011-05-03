@@ -1,0 +1,68 @@
+#dashboard {
+  position: relative;
+  min-width: 944px;
+  /*border: 1px solid #000;*/
+  font: normal 12px Helvetica,sans-serif;
+}
+#dashboard .dashlet-column {
+  float: left;
+  min-height: 100px;
+  margin: 10px;
+  /*border: 1px dashed #929292;*/
+}
+#dashboard #dashlet-column-primary {
+  width: 75%;
+  max-width: 600px;
+  min-width: 600px;
+}
+#dashboard #dashlet-column-secondary {
+  width: 328px;
+}
+#dashboard .dashlet-slot{}
+#dashboard .dashlet {
+  min-height: 100px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 5px solid #d6d6d6;
+  background: #ffffff;
+}
+#dashboard .dashlet-slot.multislot .dashlet {
+  float: left;
+  width: 260px;
+  margin-right: 20px;
+}
+#dashboard .dashlet-slot.multislot .dashlet:last-child {
+  margin-right: 0;
+}
+#dashboard #dashlet-company-ad {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background: #ffffff;
+  color: #929292;
+  text-align: center;
+  font: 16px serif;
+}
+#dashboard #dashlet-company-ad .placeholder {
+  position: absolute;
+  top: 100px;
+  left: 110px;
+}
+#dashboard .dashlet-header {
+  position: relative;
+  height: 25px;
+  margin-bottom: 10px;
+  border-bottom: 5px solid #ededed;
+}
+#dashboard .dashlet-header h2 {
+  font: normal 16px "Letter Gothic Std",Verdana,sans-serif;
+  text-transform: uppercase;
+}
+#dashboard .dashlet-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+#dashboard .dashlet-content {
+  overflow: hidden;
+}
